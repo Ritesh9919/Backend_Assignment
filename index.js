@@ -44,10 +44,8 @@ app.get('/api/blog-stats', async (req, res) => {
         //find blog with longest title
         const blogWithLongestTitle = _.maxBy(blogData, (blog) => blog.title.length);
         // find blog with privacy title
-        const blogsWithPrivacyTitle = _.filter(blogData, (blog) => {
-            _.includes(_.toLower(blog.title), 'privacy').length;
-
-        })
+        const blogsWithPrivacyTitle = _.filter(blogData, (blog) => 
+        _.includes(_.toLower(blog.title), 'privacy')).length;
         // find blogs with unique title
         const blogWithUniqueTitle = _.uniqBy(blogData, 'title').map((blog) => blog.title);
 
